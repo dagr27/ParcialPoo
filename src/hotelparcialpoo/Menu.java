@@ -10,6 +10,7 @@ import java.util.Scanner;
 /**
  *
  * @author Brenda
+ * @author Esther
  */
 public class Menu {
     private static Menu menu;
