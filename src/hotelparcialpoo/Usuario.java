@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package hotelparcialpoo;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -55,7 +56,7 @@ public class Usuario {
         System.out.println("3. Registrar Reserva");
         System.out.println("4. Salir");    
     }
-    public void mostrar(){
+    public void mostrar() throws ParseException{
         int opcion = 1;
         while (opcion != 4) {
             inicio();
