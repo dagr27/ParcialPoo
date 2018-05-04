@@ -85,8 +85,6 @@ public class Menu {
     
     public void mostrarSubmenu(){
         Scanner leer = new Scanner(System.in);
-        listaH.add();
-        lista2.add();
         int opcion = 0;
         int estado,op,precioNuevo,paquete;
         String piso,habitacion, servicio;
@@ -103,7 +101,7 @@ public class Menu {
                     case 1:
                         listaH.MostrarHabitacion();
                         break;
-                        
+
                      case 2:
                         System.out.println("¿Seguro que deseas agregar una nueva habitación?\n1. Si\n2. No");
                         op = leer.nextInt();
