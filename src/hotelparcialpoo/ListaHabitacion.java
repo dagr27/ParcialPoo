@@ -229,7 +229,12 @@ public class ListaHabitacion {
         for(Habitacion habitacion : rooms) {
             System.out.println(habitacion.idRoom);
             System.out.println(habitacion.price);
-            System.out.println(habitacion.status);
+            if(habitacion.status=="Disponible"){
+                System.out.println("\033[34mDisponible.");
+            }else{
+                System.out.println("\033[33mNo disponible.");
+            }
+            
         }
     }
 }
