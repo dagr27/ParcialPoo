@@ -46,7 +46,7 @@ public class ListaReservacion {
                 System.out.println("Ingrese ID de habitacion");
             String idHab = leer.nextLine();
             if(listaH.VerificarHabitacion(idHab)==1){
-                listaH.CambiarEstado(idHab, 2);
+                listaH.CambiarEstado(idHab, 0);
                 reservation.setIdRoom(idHab); 
                 System.out.println("Paguetes disponibles:\n1.PREMIUM\n2.Basico\n3.NINGUNO");
                 int op = leer.nextInt();
@@ -128,6 +128,7 @@ public class ListaReservacion {
     public void modificar(int idReservacion) throws ParseException{
         Scanner leer = new Scanner(System.in);
         int count = 0;
+        int total = 0;
         String mensaje = "";
         for(int i=0; i<reservations.size(); i++) {
             if(reservations.get(count).idReservation == idReservacion){
@@ -143,10 +144,23 @@ public class ListaReservacion {
                     System.out.println("Fechas invalidas");
                 }
                 System.out.println("Ingrese el nuevo id de habitacion o ingrese el mismo");
-                reservations.get(count).setIdRoom(leer.nextLine()); 
+                String idHab = leer.nextLine();
+                reservations.get(count).setIdRoom(idHab);
                 System.out.println("Paguetes disponibles:\n1.PREMIUM\n2.Basico\n3.NINGUNO");
-                reservations.get(count).setIdPack(leer.nextLine());
-                System.out.println("El precio de la habitacion es:");
+                int op = leer.nextInt();
+                if(op==1){
+                    total = listaP.Buscar(op) + listaH.Buscar(idHab);
+                    reservations.get(count).setIdPack("PREMIUM");
+                    reservations.get(count).setPrice(total);
+                }else if(op==2){
+                    total = listaP.Buscar(op) + listaH.Buscar(idHab);
+                    reservations.get(count).setIdPack("BASICO");
+                    reservations.get(count).setPrice(total);
+                }else{
+                    total = listaH.Buscar(idHab);                    
+                    reservations.get(count).setIdPack("NINGUNO");
+                    reservations.get(count).setPrice(total);
+                }
                 mensaje= "La reservacion se modifico de manera exitosa";
             }else{
                 mensaje= "\033[31mNo se encontro ese ID Intentelo de nuevo";
