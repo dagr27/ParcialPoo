@@ -49,7 +49,7 @@ public class Menu {
                 opcion = leer.nextInt();
                 switch (opcion) {
                     case 1:
-                        //mostrarSubmenu();
+                        mostrarSubmenu();
                         break;
                     case 2:
                         System.out.println("\033[32m|******  Listado de Reservaciones  ******|");
