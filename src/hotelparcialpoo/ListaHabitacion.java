@@ -114,6 +114,51 @@ public class ListaHabitacion {
         System.out.println("\033[32mHABITACION AGREGADA CORRECTAMENTE.");
     }
     
+        public void CambiarEstado(String idHabitacion, int estado){
+        int i = 0;
+        String mensaje = "";
+        for(Habitacion habitacion : rooms) {
+            if(idHabitacion.equals(rooms.get(i).idRoom)){
+                if(estado==1){
+                rooms.get(i).setStatus("Disponible");
+               }else{
+                rooms.get(i).setStatus("No disponible");
+               }
+                
+                mensaje = "EL ESTADO SE CAMBIO CORRECTAMENTE.";
+            }else{
+                mensaje = "LA HABITACION QUE INGRESO NO EXISTE.";
+            }
+            i += 1;
+        }
+        System.out.println(mensaje);
+    }
+    
+    public void CambiarEstadoPiso(String piso, int estado){
+        int contador=1;
+        int i = 0;
+        String mensaje = "";
+        for(Habitacion habitacion : rooms) {
+           if(rooms.get(i).idRoom.equals(piso+contador)){
+               if(estado==1){
+                rooms.get(i).setStatus("Disponible");
+               }else{
+                rooms.get(i).setStatus("No disponible");
+               }
+               mensaje = "ESTADO CAMBIADO CORRECTAMENTE.";
+            }else{
+               mensaje = "\033[31mEL PISO QUE INGRESO NO EXISTE.";
+               
+           }
+           contador +=1;
+        if(contador>10){
+            contador = 1;
+        }
+        i += 1;
+    }
+        System.out.println(mensaje);
+    }
+    
      public void MostrarHabitacion(){
         for(Habitacion habitacion : rooms) {
             System.out.println(habitacion.idRoom);
