@@ -10,10 +10,9 @@ import java.util.Scanner;
 
 /**
  * 
- * @author ErikR
- * @author DanielG
+
  * @author EstherL
- * @author BrendaG
+
  * 
  */
 public class ListaPaquete {
