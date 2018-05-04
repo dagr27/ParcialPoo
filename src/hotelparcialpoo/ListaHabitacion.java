@@ -18,5 +18,57 @@ public class ListaHabitacion {
     }
     int nHabitacion = 59;
     
-    
+    public void add(){
+        Scanner leer = new Scanner(System.in);
+        int contadorID = 1;
+        int ascii = 65;
+        char letra = ((char)(ascii));
+        int precioBase = 60;
+
+        for(int i=0;i<=nHabitacion;i++)
+        {
+            Habitacion room = new Habitacion();
+                String result = String.valueOf(letra)+String.valueOf(contadorID);
+                room.setIdRoom(result);
+                room.setStatus("Disponible");
+                
+                if(contadorID%2==0){
+                    room.setType("Doble");
+                    room.setPrice(precioBase+((precioBase*15)/100));
+                }else{
+                    room.setType("Sencilla");
+                    room.setPrice(precioBase);
+                }
+
+                if(letra==((char)(69)) || letra==(char)(70)){
+                    if(contadorID%2==0){
+                        room.setPrice(precioBase+(((precioBase*10)+(precioBase*15))/100));
+                    }else{
+                        room.setPrice(precioBase+((precioBase*10)/100));
+                    }
+                }
+                
+                contadorID += 1;
+                rooms.add(room);
+           
+                if(contadorID>10){
+                    contadorID = 1;
+                    ascii = ascii + 1;
+                    letra = ((char)(ascii));
+                }
+            }
+        
+    }
+    public void add(Habitacion room) throws Exception{
+        if(room != null){
+            if (rooms.contains(room)) {
+                rooms.add(room);               
+            }
+            Exception e = new Exception("No se permiten duplicados");
+            throw e;
+            
+        }else{
+            throw new Exception("No se puede agregar una habitacion nula");
+        }
+    }
 }
