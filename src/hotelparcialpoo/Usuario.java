@@ -15,7 +15,8 @@ import java.util.Scanner;
  */
 
 public class Usuario {
-      String user;
+    static ListaUsuarios lista = new ListaUsuarios();
+    String user;
     String password;
     String name;
     String lastname;
@@ -46,4 +47,55 @@ public class Usuario {
     public String getLastname(){
     return lastname;
     }  
+    public void inicio() {
+        System.out.println("----- Bienvenido -----");
+        System.out.println("1. Iniciar Sesion");
+        System.out.println("2. Agregar Huesped");
+        System.out.println("3. Registrar Reserva");
+        System.out.println("4. Salir");    
+    }
+    public void mostrar(){
+        int opcion = 1;
+        while (opcion != 4) {
+            inicio();
+            try {
+                opcion = leer.nextInt();
+                switch (opcion) {
+                    case 1:
+                         System.out.println("Ingrese sus credenciales de Administrador");
+                         login();
+                        break;
+                    case 2:
+                        System.out.println("Registrando Huesped");
+                        lista.add();
+                        break;
+                    case 3:
+                        System.out.println("Agregar Nueva Reservacion");
+                        break;
+                    case 4:
+                        System.out.println("Gracias Por usar el sistema");
+                        break;
+                    default:
+                        System.out.println("Por favor ingrese una opcion valida.");
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("Por favor, ingrese una de las opciones.");
+                leer.nextLine();
+            }
+        }
+    } 
+    public void login(){
+        ListaUsuarios u = new ListaUsuarios();
+        Scanner leer = new Scanner(System.in);
+        String usuario,contra;
+        usuario = leer.nextLine();
+        contra = leer.nextLine();
+        if(usuario.equals("admin") && contra.equals("12345")){
+            System.out.println("----Modulo Administrador----");
+        }else{
+            System.out.println("Intentalo de nuevo");
+        }
+    }
+    
 }
+
