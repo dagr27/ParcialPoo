@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @author Daniel Gómez
  */
 public class Reservacion {
+    static ListaReservacion lista = new ListaReservacion();
     int idReservation;
     String check_in;
     String check_out;
