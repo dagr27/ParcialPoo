@@ -159,6 +159,32 @@ public class ListaHabitacion {
         System.out.println(mensaje);
     }
     
+    public void CambiarPrecio(int precioBase){
+            int contadorID = 1;
+            int ascii = 65;
+            char letra = ((char)(ascii));
+            int i = 0;
+            if(precioBase > 1){
+            for(Habitacion habitacion : rooms) {
+                if(contadorID <= 10){
+                    if(letra==((char)(69)) || letra==(char)(70)){
+                        rooms.get(i).setPrice((precioBase+((precioBase*10)/100)));
+                    }else{
+                        rooms.get(i).setPrice(precioBase); 
+                    }
+                    contadorID += 1;
+                }else{
+                    contadorID = 1;
+                    ascii = ascii + 1;
+                    letra = ((char)(ascii));
+                }
+                i += 1;
+            }
+            }else{
+                System.out.println("\033[33mINGRESE UN NUMERO VALIDO");
+            }
+    }
+    
      public void MostrarHabitacion(){
         for(Habitacion habitacion : rooms) {
             System.out.println(habitacion.idRoom);
