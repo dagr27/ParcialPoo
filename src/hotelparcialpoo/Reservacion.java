@@ -18,12 +18,12 @@ public class Reservacion {
     String check_out;
     String idRoom;
     String idPack;
-    String price;
+    int price;
     String user;
     
     Scanner leer = new Scanner(System.in);
     public Reservacion(){}
-    public Reservacion(int id, String fecha_entrada, String fecha_salida, String idHabitacion, String idPaquete, String precio, String usuario){
+    public Reservacion(int id, String fecha_entrada, String fecha_salida, String idHabitacion, String idPaquete, int precio, String usuario){
     this.idReservation = id;
     this.check_in = fecha_entrada;
     this.check_out = fecha_salida;
@@ -47,7 +47,7 @@ public class Reservacion {
     public void setIdPack(String idPaquete){
         this.idPack = idPaquete;
     }
-    public void setPrice(String precio){
+    public void setPrice(int precio){
         this.price = precio;
     }
     public void setUser(String usuario){
@@ -69,7 +69,7 @@ public class Reservacion {
     public String getIdPack(){
     return idPack;
     }
-    public String getPrice(){
+    public int getPrice(){
     return price;
     }
     public String getUser(){

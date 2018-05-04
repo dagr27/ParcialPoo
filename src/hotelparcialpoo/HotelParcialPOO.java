@@ -12,9 +12,10 @@ package hotelparcialpoo;
 public class HotelParcialPOO {
 
     static ListaHabitacion listaH = new ListaHabitacion();
-    
+    static ListaPaquete listaP = new ListaPaquete();
     public static void main(String[] args) {
         listaH.add();
+        listaP.add();
         Usuario user = new Usuario();
         user.mostrar();
         
