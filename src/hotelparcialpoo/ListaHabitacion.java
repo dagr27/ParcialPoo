@@ -185,6 +185,30 @@ public class ListaHabitacion {
             }
     }
     
+    public int VerificarHabitacion(String idHabitacion){
+        int contador = 1;
+        for(Habitacion habitacion : rooms) {
+            if(rooms.get(contador).status.equals("Disponible")){
+                return 1;
+            }
+            contador += 1;
+            }
+        return 0;
+    }
+    
+    public int Buscar(String idHabitacion){
+        int contador = 0;
+        int total = 0;
+        for(Habitacion habitacion : rooms) {
+            if(rooms.get(contador).idRoom.equals(idHabitacion)){
+                total = rooms.get(contador).price;
+            }else{
+            contador += 1;
+            }
+        }
+        return total;
+    }
+    
      public void MostrarHabitacion(){
         for(Habitacion habitacion : rooms) {
             System.out.println(habitacion.idRoom);
