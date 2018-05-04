@@ -23,6 +23,7 @@ public class ListaReservacion {
         reservations = new ArrayList<>();
     }
     public void add() throws ParseException{
+        try{
         int total = 0;
         String IdUsuario;
         Reservacion reservation = new Reservacion();
@@ -74,6 +75,9 @@ public class ListaReservacion {
         }else{
             System.out.println("\033[31mEl usuario Ingresado no esta previamente agregado, o tiene dos reservaciones hechas. Intentelo de nuevo");
         }
+       }catch(Exception e){
+           System.out.println("\033[31Te has equivocado en algun formato, intentalo de nuevo");
+       }
     }
     public void add(Reservacion reservation) throws Exception{
         if(reservation != null){

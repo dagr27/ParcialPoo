@@ -87,14 +87,16 @@ public class Usuario {
             }
         }
     } 
-    public void login(){
+    public void login() throws ParseException{
         ListaUsuarios u = new ListaUsuarios();
+        Menu menu = Menu.getInstance();
         Scanner leer = new Scanner(System.in);
         String usuario,contra;
         usuario = leer.nextLine();
         contra = leer.nextLine();
         if(usuario.equals("admin") && contra.equals("12345")){
             System.out.println("----Modulo Administrador----");
+            menu.mostrar();
         }else{
             System.out.println("Intentalo de nuevo");
         }

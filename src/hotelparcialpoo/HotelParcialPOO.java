@@ -5,6 +5,8 @@
  */
 package hotelparcialpoo;
 
+import java.text.ParseException;
+
 /**
  *
  * @author Daniel Gómez
@@ -13,7 +15,7 @@ public class HotelParcialPOO {
 
     static ListaHabitacion listaH = new ListaHabitacion();
     static ListaPaquete listaP = new ListaPaquete();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         listaH.add();
         listaP.add();
         Usuario user = new Usuario();
