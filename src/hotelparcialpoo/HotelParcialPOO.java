@@ -11,11 +11,13 @@ package hotelparcialpoo;
  */
 public class HotelParcialPOO {
 
-    /**
-     * @param args the command line arguments
-     */
+    static ListaHabitacion listaH = new ListaHabitacion();
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        listaH.add();
+        Usuario user = new Usuario();
+        user.mostrar();
+        
     }
     
 }

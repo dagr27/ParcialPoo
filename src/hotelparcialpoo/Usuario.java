@@ -16,6 +16,7 @@ import java.util.Scanner;
 
 public class Usuario {
     static ListaUsuarios lista = new ListaUsuarios();
+    ListaReservacion list = Reservacion.lista;
     String user;
     String password;
     String name;
@@ -71,6 +72,7 @@ public class Usuario {
                         break;
                     case 3:
                         System.out.println("Agregar Nueva Reservacion");
+                        list.add();
                         break;
                     case 4:
                         System.out.println("Gracias Por usar el sistema");
