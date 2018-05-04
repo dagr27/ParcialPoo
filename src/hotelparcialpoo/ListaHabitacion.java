@@ -118,7 +118,7 @@ public class ListaHabitacion {
         int i = 0;
         String mensaje = "";
         for(Habitacion habitacion : rooms) {
-            if(idHabitacion.equals(rooms.get(i).idRoom)){
+            if(rooms.get(i).idRoom.equals(idHabitacion)){
                 if(estado==1){
                 rooms.get(i).setStatus("Disponible");
                }else{
@@ -126,8 +126,6 @@ public class ListaHabitacion {
                }
                 
                 mensaje = "EL ESTADO SE CAMBIO CORRECTAMENTE.";
-            }else{
-                mensaje = "LA HABITACION QUE INGRESO NO EXISTE.";
             }
             i += 1;
         }
@@ -186,10 +184,15 @@ public class ListaHabitacion {
     }
     
     public int VerificarHabitacion(String idHabitacion){
-        int contador = 1;
+        int contador = 0;
+
         for(Habitacion habitacion : rooms) {
-            if(rooms.get(contador).status.equals("Disponible")){
-                return 1;
+            if(rooms.get(contador).idRoom.equals(idHabitacion)){
+                if(rooms.get(contador).status.equals("Disponible")){
+                    return 1;
+                }
+            }else{
+                
             }
             contador += 1;
             }
@@ -202,6 +205,19 @@ public class ListaHabitacion {
         for(Habitacion habitacion : rooms) {
             if(rooms.get(contador).idRoom.equals(idHabitacion)){
                 total = rooms.get(contador).price;
+            }else{
+            contador += 1;
+            }
+        }
+        return total;
+    }
+    
+    public String BuscarHabitacion(String idHabitacion){
+        int contador = 0;
+        String total = "";
+        for(Habitacion habitacion : rooms) {
+            if(rooms.get(contador).idRoom.equals(idHabitacion)){
+                total = rooms.get(contador).idRoom;
             }else{
             contador += 1;
             }
